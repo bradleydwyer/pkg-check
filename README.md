@@ -2,6 +2,8 @@
 
 Check if a package name is available across 29 registries at once.
 
+> **Note:** This project has no automated tests. Registry API responses may change without notice. Results should be verified manually for anything important.
+
 ## About
 
 When naming a new library or tool, you want to know which registries already have that name. pkg-check queries npm, PyPI, crates.io, and 26 other package registries in parallel, giving you results in about a second.
