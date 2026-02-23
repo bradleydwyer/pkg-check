@@ -2,7 +2,7 @@
 
 Check if a package name is available across 29 registries at once.
 
-> **Note:** This project has no automated tests. Registry API responses may change without notice. Results should be verified manually for anything important.
+> **Experimental.** This project is new and has not been used in production. Use with caution.
 
 ## About
 
