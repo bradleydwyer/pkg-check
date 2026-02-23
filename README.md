@@ -86,6 +86,8 @@ Exposes three tools over stdio:
 
 **Additional:** Homebrew Cask, Hackage, opam, CPAN, LuaRocks, Nimble, DUB, CRAN, Julia General, conda-forge, vcpkg, Snapcraft, deno.land/x, Shards, VPM, CTAN, Pursuit, WordPress Themes, Chocolatey
 
+Registries with scoped/namespaced packages (Maven Central, Go modules, Packagist, Helm, JSR, etc.) are excluded because names aren't globally reserved -- anyone can publish under their own namespace, so "available" isn't meaningful.
+
 Run `pkg-check --list-registries` to see all registries with their IDs, ecosystems, and supported languages.
 
 ## License
