@@ -5,6 +5,7 @@ pub enum AvailableSignal {
     Http404,
     EmptyResults,
     NullOrError,
+    XmlNoEntry,
 }
 
 pub struct Registry {
@@ -19,7 +20,7 @@ pub struct Registry {
     pub popular: bool,
 }
 
-pub const REGISTRIES: [Registry; 30] = [
+pub const REGISTRIES: [Registry; 29] = [
     // --- Popular (10) ---
     Registry {
         id: "npm",
@@ -320,17 +321,6 @@ pub const REGISTRIES: [Registry; 30] = [
         popular: false,
     },
     Registry {
-        id: "wordpress_plugins",
-        name: "WordPress Plugins",
-        ecosystem: "WordPress",
-        languages: &["php"],
-        check_url_template: "https://api.wordpress.org/plugins/info/1.2/?action=plugin_information&slug={name}",
-        browse_url_template: "https://wordpress.org/plugins/{name}/",
-        signal: AvailableSignal::NullOrError,
-        headers: &[],
-        popular: false,
-    },
-    Registry {
         id: "wordpress_themes",
         name: "WordPress Themes",
         ecosystem: "WordPress",
@@ -346,9 +336,9 @@ pub const REGISTRIES: [Registry; 30] = [
         name: "Chocolatey",
         ecosystem: "Windows",
         languages: &["multi"],
-        check_url_template: "https://community.chocolatey.org/api/v2/package-ids?partialId={name}",
+        check_url_template: "https://community.chocolatey.org/api/v2/Packages()?%24filter=Id%20eq%20%27{name}%27&%24top=1",
         browse_url_template: "https://community.chocolatey.org/packages/{name}",
-        signal: AvailableSignal::EmptyResults,
+        signal: AvailableSignal::XmlNoEntry,
         headers: &[],
         popular: false,
     },

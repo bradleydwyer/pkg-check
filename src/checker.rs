@@ -96,6 +96,9 @@ fn dispatch_signal(
             }
         }
         AvailableSignal::NullOrError => {
+            if status.as_u16() == 404 {
+                return Availability::Available;
+            }
             if !status.is_success() {
                 return Availability::Unknown;
             }
@@ -112,6 +115,21 @@ fn dispatch_signal(
                         }
                         Ok(_) => Availability::Taken,
                         Err(_) => Availability::Unknown,
+                    }
+                }
+                None => Availability::Unknown,
+            }
+        }
+        AvailableSignal::XmlNoEntry => {
+            if !status.is_success() {
+                return Availability::Unknown;
+            }
+            match body {
+                Some(text) => {
+                    if text.contains("<entry") {
+                        Availability::Taken
+                    } else {
+                        Availability::Available
                     }
                 }
                 None => Availability::Unknown,
