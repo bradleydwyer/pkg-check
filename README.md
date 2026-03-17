@@ -2,20 +2,16 @@
 
 Check if a package name is available across 29 registries at once.
 
-## About
+Queries npm, PyPI, crates.io, and 26 other registries in parallel. Results come back in about a second. Also runs as an MCP server.
 
-When naming a new library or tool, you want to know which registries already have that name. pkg-check queries npm, PyPI, crates.io, and 26 other package registries in parallel, giving you results in about a second.
+## Install
 
-It also runs as an MCP server, so AI assistants can check name availability directly.
-
-## Installation
-
-**Homebrew (macOS):**
 ```bash
 brew install bradleydwyer/tap/pkg-check
 ```
 
-**From source (requires Rust 1.85+):**
+Or from source (Rust 1.85+):
+
 ```bash
 cargo install --git https://github.com/bradleydwyer/pkg-check
 ```
@@ -76,7 +72,7 @@ Returns structured JSON with per-registry results, browse URLs, and timing.
 $ pkg-check mcp
 ```
 
-Exposes three tools over stdio:
+Three tools over stdio:
 
 - **check_package** - Check a single name
 - **check_packages** - Check up to 50 names in bulk
@@ -84,16 +80,16 @@ Exposes three tools over stdio:
 
 ## Registries
 
-29 registries organized into a default set of 10 popular ones and 19 additional.
+29 registries: a default set of 10 popular ones, plus 19 additional.
 
 **Default (popular):** npm, PyPI, crates.io, RubyGems, NuGet, Hex, pub.dev, Homebrew, Docker Hub, CocoaPods
 
 **Additional:** Homebrew Cask, Hackage, opam, CPAN, LuaRocks, Nimble, DUB, CRAN, Julia General, conda-forge, vcpkg, Snapcraft, deno.land/x, Shards, VPM, CTAN, Pursuit, WordPress Themes, Chocolatey
 
-Registries with scoped/namespaced packages (Maven Central, Go modules, Packagist, Helm, JSR, etc.) are excluded because names aren't globally reserved -- anyone can publish under their own namespace, so "available" isn't meaningful.
+Registries with scoped/namespaced packages (Maven Central, Go modules, Packagist, Helm, JSR, etc.) are excluded. Names there aren't globally reserved, so "available" isn't meaningful.
 
-Run `pkg-check --list-registries` to see all registries with their IDs, ecosystems, and supported languages.
+Run `pkg-check --list-registries` to see everything with IDs, ecosystems, and supported languages.
 
 ## License
 
-pkg-check is licensed under the MIT license. See the [`LICENSE`](LICENSE) file for details.
+MIT
