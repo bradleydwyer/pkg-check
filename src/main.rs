@@ -1,13 +1,13 @@
 use clap::{Parser, Subcommand};
-use pkg_check::checker;
-use pkg_check::mcp::PkgCheckMcp;
-use pkg_check::registry;
-use pkg_check::types::Availability;
+use staked::checker;
+use staked::mcp::StakedMcp;
+use staked::registry;
+use staked::types::Availability;
 use rmcp::{ServiceExt, transport::stdio};
 
 #[derive(Parser)]
 #[command(
-    name = "pkg-check",
+    name = "staked",
     about = "Package registry name availability checker",
     version
 )]
@@ -69,7 +69,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let cli = Cli::parse();
 
     if let Some(Command::Mcp) = cli.command {
-        let server = PkgCheckMcp::new();
+        let server = StakedMcp::new();
         let service = server.serve(stdio()).await?;
         service.waiting().await?;
         return Ok(());
@@ -98,11 +98,11 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     }
 
     if cli.names.is_empty() {
-        eprintln!("Usage: pkg-check [OPTIONS] <NAMES>...");
-        eprintln!("       pkg-check mcp");
-        eprintln!("       pkg-check --list-registries");
+        eprintln!("Usage: staked [OPTIONS] <NAMES>...");
+        eprintln!("       staked mcp");
+        eprintln!("       staked --list-registries");
         eprintln!();
-        eprintln!("Run 'pkg-check --help' for more information.");
+        eprintln!("Run 'staked --help' for more information.");
         std::process::exit(1);
     }
 

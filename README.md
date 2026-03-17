@@ -1,4 +1,4 @@
-# pkg-check
+# staked
 
 Check if a package name is available across 29 registries at once.
 
@@ -7,13 +7,13 @@ Queries npm, PyPI, crates.io, and 26 other registries in parallel. Results come 
 ## Install
 
 ```bash
-brew install bradleydwyer/tap/pkg-check
+brew install bradleydwyer/tap/staked
 ```
 
 Or from source (Rust 1.85+):
 
 ```bash
-cargo install --git https://github.com/bradleydwyer/pkg-check
+cargo install --git https://github.com/bradleydwyer/staked
 ```
 
 ## Usage
@@ -21,7 +21,7 @@ cargo install --git https://github.com/bradleydwyer/pkg-check
 Check a name against the 10 most popular registries:
 
 ```
-$ pkg-check my-cool-lib
+$ staked my-cool-lib
 my-cool-lib:
   8 available, 2 taken, 0 unknown (998ms)
   available: crates.io, RubyGems, NuGet, Hex, pub.dev, Homebrew, Docker Hub, CocoaPods
@@ -31,7 +31,7 @@ my-cool-lib:
 Check multiple names:
 
 ```
-$ pkg-check foo bar baz
+$ staked foo bar baz
 ```
 
 ### Options
@@ -48,7 +48,7 @@ $ pkg-check foo bar baz
 ### Verbose output
 
 ```
-$ pkg-check -v caucus
+$ staked -v caucus
 caucus:
   8 available, 2 taken, 0 unknown (897ms)
   [-] npm                  TAKEN        (73ms)
@@ -61,7 +61,7 @@ caucus:
 ### JSON output
 
 ```
-$ pkg-check -j -r npm,crates my-lib
+$ staked -j -r npm,crates my-lib
 ```
 
 Returns structured JSON with per-registry results, browse URLs, and timing.
@@ -69,7 +69,7 @@ Returns structured JSON with per-registry results, browse URLs, and timing.
 ### MCP server
 
 ```
-$ pkg-check mcp
+$ staked mcp
 ```
 
 Three tools over stdio:
@@ -88,7 +88,7 @@ Three tools over stdio:
 
 Registries with scoped/namespaced packages (Maven Central, Go modules, Packagist, Helm, JSR, etc.) are excluded. Names there aren't globally reserved, so "available" isn't meaningful.
 
-Run `pkg-check --list-registries` to see everything with IDs, ecosystems, and supported languages.
+Run `staked --list-registries` to see everything with IDs, ecosystems, and supported languages.
 
 ## License
 

@@ -1,8 +1,8 @@
 ---
-name: pkg-check
+name: staked
 description: "Check package name availability across registries (npm, PyPI, crates.io, RubyGems, NuGet, Hex, pub.dev, Homebrew, Docker Hub, CocoaPods, and 19 more). Use when a user wants to find an available name for a library, tool, or package, or is researching whether a name is taken."
 allowed-tools:
-  - Bash(pkg-check:*)
+  - Bash(staked:*)
 user-invocable: true
 argument-hint: "<name> [name2 name3 ...]"
 metadata:
@@ -11,7 +11,7 @@ metadata:
   status: experimental
 ---
 
-# pkg-check -- Package Name Availability Checker
+# staked -- Package Name Availability Checker
 
 Checks whether a package name is available across 29 registries. Always use `-j` for JSON output.
 
@@ -23,7 +23,7 @@ Checks whether a package name is available across 29 registries. Always use `-j`
 
 ## Installation
 
-The `pkg-check` CLI must be available on PATH. Verify with `pkg-check --list-registries`. Install before proceeding if not found.
+The `staked` CLI must be available on PATH. Verify with `staked --list-registries`. Install before proceeding if not found.
 
 ## Workflow
 
@@ -42,11 +42,11 @@ The `pkg-check` CLI must be available on PATH. Verify with `pkg-check --list-reg
 Always use `-j` for JSON output:
 
 ```bash
-pkg-check -j myname                    # 10 popular registries
-pkg-check -j foo bar baz               # multiple candidates
-pkg-check -j -a myname                 # all 29 registries
-pkg-check -j -r npm,crates,pypi myname # specific registries
-pkg-check -j -l rust,python myname     # filter by language
+staked -j myname                    # 10 popular registries
+staked -j foo bar baz               # multiple candidates
+staked -j -a myname                 # all 29 registries
+staked -j -r npm,crates,pypi myname # specific registries
+staked -j -l rust,python myname     # filter by language
 ```
 
 ### Step 3: Report Results
@@ -61,15 +61,15 @@ Parse the JSON and present a clear summary:
 ## CLI Quick Reference
 
 ```bash
-pkg-check myname                # 10 popular registries
-pkg-check foo bar baz           # multiple names
-pkg-check -j myname             # JSON output (always use this)
-pkg-check -v myname             # verbose per-registry detail
-pkg-check -a myname             # all 29 registries
-pkg-check -r npm,crates myname  # specific registries
-pkg-check -l rust,python myname # filter by language
-pkg-check --list-registries     # show all supported registries
-pkg-check mcp                   # start MCP server
+staked myname                # 10 popular registries
+staked foo bar baz           # multiple names
+staked -j myname             # JSON output (always use this)
+staked -v myname             # verbose per-registry detail
+staked -a myname             # all 29 registries
+staked -r npm,crates myname  # specific registries
+staked -l rust,python myname # filter by language
+staked --list-registries     # show all supported registries
+staked mcp                   # start MCP server
 ```
 
 ## Tips

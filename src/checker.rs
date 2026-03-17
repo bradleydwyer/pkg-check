@@ -8,7 +8,7 @@ use tokio::sync::Semaphore;
 fn build_client() -> Client {
     Client::builder()
         .timeout(std::time::Duration::from_secs(10))
-        .user_agent("pkg-check/0.1.0")
+        .user_agent("staked/1.0.0")
         .build()
         .expect("Failed to build HTTP client")
 }

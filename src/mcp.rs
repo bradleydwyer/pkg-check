@@ -33,11 +33,11 @@ pub struct CheckPackagesParams {
 #[derive(Debug, Deserialize, JsonSchema)]
 pub struct ListRegistriesParams {}
 
-pub struct PkgCheckMcp {
+pub struct StakedMcp {
     tool_router: ToolRouter<Self>,
 }
 
-impl Default for PkgCheckMcp {
+impl Default for StakedMcp {
     fn default() -> Self {
         Self::new()
     }
@@ -54,7 +54,7 @@ fn resolve_registries(registries: &Option<String>) -> Vec<&'static registry::Reg
 }
 
 #[tool_router]
-impl PkgCheckMcp {
+impl StakedMcp {
     pub fn new() -> Self {
         Self {
             tool_router: Self::tool_router(),
@@ -131,7 +131,7 @@ impl PkgCheckMcp {
 }
 
 #[tool_handler]
-impl ServerHandler for PkgCheckMcp {
+impl ServerHandler for StakedMcp {
     fn get_info(&self) -> ServerInfo {
         ServerInfo {
             instructions: Some(
