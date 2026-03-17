@@ -1,5 +1,9 @@
 # staked
 
+<p align="center">
+  <img src="logos/staked-logo.png" width="256" alt="staked logo" />
+</p>
+
 Check if a package name is available across 29 registries at once.
 
 Queries npm, PyPI, crates.io, and 26 other registries in parallel. Results come back in about a second. Also runs as an MCP server.
