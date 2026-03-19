@@ -97,3 +97,16 @@ Run `staked --list-registries` to see everything with IDs, ecosystems, and suppo
 ## License
 
 MIT
+
+## More Tools
+
+**Naming & Availability**
+- [available](https://github.com/bradleydwyer/available) — AI-powered project name finder (uses parked, staked & published)
+- [parked](https://github.com/bradleydwyer/parked) — Domain availability checker (DNS → WHOIS → RDAP)
+- [published](https://github.com/bradleydwyer/published) — App store name checker (App Store & Google Play)
+
+**AI Tooling**
+- [sloppy](https://github.com/bradleydwyer/sloppy) — AI prose/slop detector
+- [caucus](https://github.com/bradleydwyer/caucus) — Multi-LLM consensus engine
+- [nanaban](https://github.com/bradleydwyer/nanaban) — Gemini image generation CLI
+- [equip](https://github.com/bradleydwyer/equip) — Cross-agent skill manager
