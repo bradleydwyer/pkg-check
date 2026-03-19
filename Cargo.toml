@@ -1,6 +1,6 @@
 [package]
 name = "staked"
-version = "2.0.4"
+version = "2.0.5"
 edition = "2024"
 description = "Package registry name availability checker with CLI and MCP server"
 license = "MIT"
