@@ -76,10 +76,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     }
 
     if cli.list_registries {
-        println!(
-            "{:<20} {:<25} {:<30} LANGUAGES",
-            "ID", "NAME", "ECOSYSTEM"
-        );
+        println!("{:<20} {:<25} {:<30} LANGUAGES", "ID", "NAME", "ECOSYSTEM");
         println!("{}", "-".repeat(95));
         for reg in registry::all_registries() {
             let popular = if reg.popular { " *" } else { "" };
